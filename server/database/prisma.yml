@@ -1,3 +1,5 @@
+cluster: local
+
 # The service name, this will be part of the endpoint of the Prisma API
 service: akogarecafe 
 

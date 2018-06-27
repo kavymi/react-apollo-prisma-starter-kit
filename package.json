@@ -39,6 +39,7 @@
     "precommit": "yarn run lint && yarn run flow",
     "flow": "flow",
     "lint": "eslint .",
+    "setup": "docker-compose -f server/database/docker-compose.yml up -d",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
