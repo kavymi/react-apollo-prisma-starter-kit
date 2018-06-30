@@ -1,9 +1,7 @@
-cluster: local
+endpoint: http://localhost:4466
 
-# The service name, this will be part of the endpoint of the Prisma API
-service: prisma 
+service: prisma
 
-# The deployment stage, this will also be part of the API endpoint
 stage: dev
 
 # The file containing the definition of your data model.
