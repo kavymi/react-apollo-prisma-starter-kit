@@ -26,8 +26,8 @@ class FeedPage extends Component {
     return (
       <Fragment>
         <h1>Feed</h1>
-        {this.props.feedQuery.feed &&
-          this.props.feedQuery.feed.map(post => (
+        {this.props.feedQuery.feed.posts &&
+          this.props.feedQuery.feed.posts.map(post => (
             <Post
               key={post.id}
               post={post}
@@ -44,14 +44,17 @@ class FeedPage extends Component {
 const FEED_QUERY = gql`
   query FeedQuery {
     feed {
-      id
-      text
-      title
-      isPublished
-      author {
-        name
+      count
+      posts {
+        id
+        text
+        title
+        isPublished
+        author {
+          name
+        }
       }
-    }
+  }
   }
 `
 const FEED_SUBSCRIPTION = gql`

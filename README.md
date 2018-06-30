@@ -31,13 +31,13 @@ npm i -g docker
 
 ```sh
 # 1. Deploy the docker instances
-cd akogarecafe
+cd <project folder>
 yarn dev
 
 # 2. When prompted, deploy the Prisma service to a _public cluster_
 
 # 3. Navigate into the `server` directory of the new project
-cd akogarecafe/server
+cd <project folder>/server
 
 # 4. Start the server
 yarn dev # runs server on http://localhost:4000, and opens GraphQL PLayground

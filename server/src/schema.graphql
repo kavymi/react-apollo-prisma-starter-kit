@@ -1,10 +1,15 @@
 # import Post from "./generated/prisma.graphql"
 
 type Query {
-  feed: [Post!]!
+  feed(filter: String, skip: Int, first: Int, orderBy: PostOrderByInput): Feed!
   drafts: [Post!]!
   post(id: ID!): Post
   me: User
+}
+
+type Feed {
+  posts: [Post!]!
+  count: Int!
 }
 
 type Mutation {

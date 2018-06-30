@@ -1,4 +1,5 @@
 const { Query } = require('./Query')
+const { Feed } = require('./Feed')
 const { Subscription } = require('./Subscription')
 const { auth } = require('./Mutation/auth')
 const { post } = require('./Mutation/post')
@@ -12,4 +13,5 @@ module.exports = {
   },
   Subscription,
   AuthPayload,
+  Feed,
 }
