@@ -22,12 +22,11 @@ npm i -g docker
 ## Getting started
 
 ```sh
-# 1. Deploy the docker instances
-cd <project folder>
-yarn setup
-
-# 2. Navigate into the `server` directory of the new project
+# 1. Navigate into the `server` directory of the new project
 cd <project folder>/server
+
+# 2. Deploy the MySQL database and prisma service to the docker instances
+yarn setup
 
 # 3. Start the server
 yarn dev # runs server on http://localhost:4000, and opens GraphQL PLayground on http://localhost:5000
