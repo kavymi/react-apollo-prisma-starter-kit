@@ -1,14 +1,11 @@
 <h1 align="center"><strong>Starter project for Fullstack React Apollo GraphQL with Prisma</strong></h1>
 
-<div align="center"><strong>This starter is extended from [React Full Stack Graphql](https://github.com/graphql-boilerplates/react-fullstack-graphql)</strong></div>
+This starter project is extended from [React Full Stack Graphql](https://github.com/graphql-boilerplates/react-fullstack-graphql)
 
 <br />
 
-![](https://imgur.com/ousyQaC.png)
-
 ## Features
 
-- **Pre-configured Apollo Client:** The project comes with a preconfigured setup for Apollo Client
 - **GraphQL database:** Includes GraphQL database binding to [Prisma](https://www.prismagraphql.com) (running on MySQL)
 - **Tooling**: Out-of-the-box support for [GraphQL Playground](https://github.com/prisma/graphql-playground) & [query performance tracing](https://github.com/apollographql/apollo-tracing)
 
