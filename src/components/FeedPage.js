@@ -15,9 +15,6 @@ class FeedPage extends Component {
   }
 
   render() {
-
-    console.log(this.props)
-
     if (this.props.feedQuery.loading) {
       return (
         <div className="flex w-100 h-100 items-center justify-center pt7">
