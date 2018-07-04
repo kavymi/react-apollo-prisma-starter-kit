@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
+var DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin')
 const smp = new SpeedMeasurePlugin()
 
 module.exports = smp.wrap({
@@ -43,41 +44,49 @@ module.exports = smp.wrap({
         ]
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/i,
+        test: /\.(jpe?g|png)$/i,
+        loader: 'responsive-loader',
+        options: {
+          adapter: require('responsive-loader/sharp'),
+          sizes: [300, 600, 1200, 2000],
+          placeholder: true,
+          placeholderSize: 50
+        }
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
-          'url-loader?limit=10000',
+          'file-loader',
           {
-            loader: 'img-loader',
+            loader: 'image-webpack-loader',
             options: {
-              plugins (context) {
-                // if (process.env.NODE_ENV === 'production') return []
-                return [
-                  require('imagemin-gifsicle')({
-                    interlaced: false
-                  }),
-                  require('imagemin-mozjpeg')({
-                    progressive: true,
-                    arithmetic: false
-                  }),
-                  require('imagemin-pngquant')({
-                    floyd: 0.5,
-                    speed: 2
-                  }),
-                  require('imagemin-svgo')({
-                    plugins: [
-                      { removeTitle: true },
-                      { convertPathData: false }
-                    ]
-                  })
-                ]
+              mozjpeg: {
+                progressive: true,
+                quality: 65
+              },
+              // optipng.enabled: false will disable optipng
+              optipng: {
+                enabled: false,
+              },
+              pngquant: {
+                quality: '65-90',
+                speed: 4
+              },
+              gifsicle: {
+                interlaced: false,
+              },
+              // the webp option will enable WEBP
+              webp: {
+                quality: 75
               }
             }
-          }
-        ]
+          },
+        ],
       }
     ]
   },
   plugins: [
+    new DuplicatePackageCheckerPlugin(),
     new CleanWebpackPlugin('dist', {}),
     new MiniCssExtractPlugin({
       filename: 'style.[contenthash].css'
