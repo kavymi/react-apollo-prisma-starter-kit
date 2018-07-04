@@ -1,5 +1,11 @@
 {
-    "presets": ["env", "react", "stage-0"],
+    "presets": [[
+      "env", {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ], "react", "stage-0"],
     "env": {
       "debug": true
     }
