@@ -5,8 +5,10 @@ const WebpackMd5Hash = require('webpack-md5-hash')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
+const smp = new SpeedMeasurePlugin()
 
-module.exports = {
+module.exports = smp.wrap({
   entry: { main: './src/index.js' },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -39,6 +41,39 @@ module.exports = {
           'postcss-loader',
           'sass-loader'
         ]
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        use: [
+          'url-loader?limit=10000',
+          {
+            loader: 'img-loader',
+            options: {
+              plugins (context) {
+                // if (process.env.NODE_ENV === 'production') return []
+                return [
+                  require('imagemin-gifsicle')({
+                    interlaced: false
+                  }),
+                  require('imagemin-mozjpeg')({
+                    progressive: true,
+                    arithmetic: false
+                  }),
+                  require('imagemin-pngquant')({
+                    floyd: 0.5,
+                    speed: 2
+                  }),
+                  require('imagemin-svgo')({
+                    plugins: [
+                      { removeTitle: true },
+                      { convertPathData: false }
+                    ]
+                  })
+                ]
+              }
+            }
+          }
+        ]
       }
     ]
   },
@@ -60,4 +95,4 @@ module.exports = {
       syntax: 'scss'
     })
   ]
-}
+})
