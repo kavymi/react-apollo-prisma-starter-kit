@@ -13,10 +13,10 @@ This starter project is extended from [React Full Stack Graphql](https://github.
 
 You need to have the [GraphQL CLI](https://github.com/graphql-cli/graphql-cli) installed to bootstrap your GraphQL server using `graphql create`.
 You need to have docker installed to deploy the database and the prisma service to docker instances.
+Requires Node version >8
 
 ```sh
-npm i -g graphql-cli
-npm i -g docker
+npm i -g graphql-cli docker prisma
 ```
 
 ## Getting started
@@ -44,7 +44,7 @@ yarn start
 * `yarn start` starts GraphQL server on `http://localhost:4000`
 * `yarn dev` starts GraphQL server on `http://localhost:4000` _and_ opens GraphQL Playground on `http://localhost:5000`
 
-| File name 　　　　　　　　　　　　　　| Description 　　　　　　　　<br><br>| 
+| File name 　　　　　　　　　　　　　　| Description 　　　　　　　　<br><br>|
 | :--  | :--         |
 | `├── .graphqlconfig.yml` | Configuration file based on [`graphql-config`](https://github.com/prisma/graphql-config) (e.g. used by GraphQL Playground).|
 | `└── database ` (_directory_) | _Contains all files that are related to the Prisma database service_ |\
