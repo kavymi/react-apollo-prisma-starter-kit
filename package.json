@@ -14,7 +14,7 @@
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^0.28.11",
     "duplicate-package-checker-webpack-plugin": "^3.0.0",
-    "eslint": "5.1.0",
+    "eslint": "5.2.0",
     "eslint-config-prettier": "2.9.0",
     "eslint-config-react-app": "2.1.0",
     "eslint-plugin-babel": "5.1.0",
@@ -43,19 +43,19 @@
     "stylelint-config-recommended": "^2.1.0",
     "stylelint-webpack-plugin": "^0.10.5",
     "url-loader": "^1.0.1",
-    "webpack": "^4.16.1",
+    "webpack": "^4.16.2",
     "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.4",
+    "webpack-dev-server": "^3.1.5",
     "webpack-md5-hash": "^0.0.6",
     "yarn": "^1.7.0"
   },
   "dependencies": {
-    "apollo-boost": "0.1.10",
+    "apollo-boost": "0.1.12",
     "apollo-client": "2.3.5",
     "apollo-client-preset": "1.0.8",
     "apollo-link": "1.2.2",
     "apollo-link-ws": "1.0.8",
-    "apollo-utilities": "1.0.16",
+    "apollo-utilities": "1.0.17",
     "graphql": "0.13.2",
     "graphql-tag": "2.9.2",
     "react": "16.4.1",
@@ -63,8 +63,8 @@
     "react-dom": "16.4.1",
     "react-modal": "3.5.1",
     "react-router-dom": "4.3.1",
-    "subscriptions-transport-ws": "0.9.12",
-    "tachyons": "4.11.0"
+    "subscriptions-transport-ws": "0.9.13",
+    "tachyons": "4.11.1"
   },
   "scripts": {
     "precommit": "yarn run lint && yarn run flow",
